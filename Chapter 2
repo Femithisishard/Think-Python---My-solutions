@@ -1,0 +1,43 @@
+# The volume of a sphere with radius r is 4/3πr3. 
+# What is the volume of a sphere with radius 5?
+
+'''Calculate the volume aof a sphere 
+    vol of sphere = 4/3 * math.pi * r**3'''
+
+import math
+r = int(input('Enter the radius of the sphere: \n'))
+vol = 4/3*(math.pi*r**3)
+print('Volume of sphere with radius', r, 'is', vol)
+
+
+# Suppose the cover price of a book is $24.95, but bookstores 
+# get a 40% discount.
+# Shipping costs $3 for the first copy and 75 cents for 
+# each additional copy. What is the total wholesale cost for 60 copies?
+
+'''To compute the wholesale cost of 60 books'''
+book_price = 24.95
+bookstore_price = book_price * (1 - 0.4)
+first_shipping = 3
+add_shipping = 0.75
+first_shipping_price = bookstore_price + first_shipping
+add_shipping_price = bookstore_price + add_shipping
+order = int(input('Enter number of copies: \n'))
+total = first_shipping_price + (add_shipping_price * (order-1))
+print ('Cost for', order,'number of books', '$'+str(total))
+
+
+# If I leave my house at 6:52 am and run 1 mile at an 
+# easy pace (8:15 per mile), then 3 miles at tempo (7:12 per mile) 
+# and 1 mile at an easy pace again, what time do I get home for breakfast?
+
+'''Calculate the time to get back home'''
+start_time = (6*3600) + (52*60)
+easy_pace = (8*60)+15
+tempo = (7*60)+12
+total_time = (2 * easy_pace) + (3 * tempo)
+current_time = start_time + total_time
+new_hours = current_time//3600
+new_mins = (current_time % 3600) // 60
+print('Time I get home for breakfast is ', str(new_hours)+':'+
+      str(new_mins),'am')
