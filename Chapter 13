@@ -1,0 +1,44 @@
+import string
+
+def read_file(file, d):
+    ''' Reads the file and performs the requisite string functions on the 
+        file i.e remove punctuations, turn all words to lower case'''
+    
+    for word in file:
+        data = file.lower()
+        data = data.translate(str.maketrans('','', string.punctuation))
+        data = data.split() #converts the string into a list of words
+        d[word] = d.get(word, 0) + 1
+        
+def process_file(filename):
+    ''' Opens the fine and applies the read_file code'''
+    h = {}
+    fp = open(filename)
+    for line in fp:
+        read_file(line, h)
+    return h
+
+def common_words(d):
+    ''' Sorts out the words in the dictionary in hierarachy '''
+    lst = []
+    for key, val in list(d.items()):
+        lst.append((val, key))
+    lst.sorted(reverse=True)
+    return lst
+    
+  
+def print_common(h, num=10):
+    '''Prints the most common words, if number of common word is not stated
+       it prints a default of the 10 most common words'''
+    t = common_words(h)
+    for key, val in t[:num]:
+        print(key, value)
+      
+def sub(d1, d2):
+    ''' Checks the words in the file text with words in an
+        english dictionary and returns those words'''
+    res = {}
+    for key in d1:
+        if key not in d2:
+            res[key] = None
+    return res      
